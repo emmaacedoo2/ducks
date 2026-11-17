@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "Welcome to Mallard Duck Movement! This website explores the movements of 52 Mallard ducks tracked using GPS data over a 10-year period. The ducks were originally tagged at Lake Constance, a lake located on the border of Germany, Switzerland, and Austria. The tracking data comes from a Mallard GPS dataset provided in the PPBDS tutorial materials.\nOur analysis shows that most ducks stay relatively close to Lake Constance, while others travel hundreds of kilometers northeast across Europe. We also found that duck activity changes throughout the year, with movement peaking in July and August, after the breeding season."
+  },
+  {
+    "objectID": "index.html#where-do-mallard-ducks-go",
+    "href": "index.html#where-do-mallard-ducks-go",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "Welcome to Mallard Duck Movement! This website explores the movements of 52 Mallard ducks tracked using GPS data over a 10-year period. The ducks were originally tagged at Lake Constance, a lake located on the border of Germany, Switzerland, and Austria. The tracking data comes from a Mallard GPS dataset provided in the PPBDS tutorial materials.\nOur analysis shows that most ducks stay relatively close to Lake Constance, while others travel hundreds of kilometers northeast across Europe. We also found that duck activity changes throughout the year, with movement peaking in July and August, after the breeding season."
+  },
+  {
+    "objectID": "index.html#explore-the-website",
+    "href": "index.html#explore-the-website",
+    "title": "Mallard Duck Movement",
+    "section": "Explore the Website",
+    "text": "Explore the Website\nUse the navigation bar at the top to explore our findings:\n\nMap: Discover where the ducks travel and see their GPS locations across Europe.\nSeasons: Explore how duck movement and speed change throughout the year."
+  },
+  {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Map",
+    "section": "",
+    "text": "# A tibble: 10 × 7\n   timestamp             lat  long speed heading duck_id      taxon             \n   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;             \n 1 2007-11-23 23:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 2 2007-11-24 05:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 3 2007-11-26 05:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 4 2007-11-26 23:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 5 2007-11-27 05:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 6 2007-11-27 23:00:00  47.7  9.00    NA      NA Argos 77188A Anas platyrhynchos\n 7 2007-11-23 09:00:00  47.7  9.00    NA      NA Argos 77189A Anas platyrhynchos\n 8 2007-11-24 09:00:00  47.7  9.00    NA      NA Argos 77189A Anas platyrhynchos\n 9 2007-11-24 17:00:00  47.7  9.00    NA      NA Argos 77189A Anas platyrhynchos\n10 2007-11-25 05:00:00  47.7  9.00    NA      NA Argos 77189A Anas platyrhynchos\n\n\n\n\n# A tibble: 52 × 2\n   duck_id                        n\n   &lt;chr&gt;                      &lt;int&gt;\n 1 2351 - Radolfzell JC 72052 20169\n 2 1806 - Radolfzell JC70792  10139\n 3 2318 - Radolfzell JC 72053  9522\n 4 2312 - Radolfzell JC 72051  7163\n 5 2497 - Radolfzell JC74415   4835\n 6 2339 - Radolfzell JC 72018  4645\n 7 2495 - Radolfzell JC74406   3030\n 8 2501 - Radolfzell JC74418   2861\n 9 2502 - Radolfzell JC74417   2715\n10 2489 - Radolfzell JC74412   2514\n# ℹ 42 more rows\n\n\n\n\n# A tibble: 1 × 4\n  min_lat max_lat min_long max_long\n    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1    47.3    53.9     7.83     23.6"
+  },
+  {
+    "objectID": "seasons.html",
+    "href": "seasons.html",
+    "title": "Seasons",
+    "section": "",
+    "text": "# A tibble: 12 × 2\n   month         n\n   &lt;ord&gt;     &lt;int&gt;\n 1 September 20977\n 2 October    9890\n 3 August     9659\n 4 March      7524\n 5 April      6369\n 6 July       5748\n 7 February   4960\n 8 November   4825\n 9 December   3796\n10 May        3423\n11 January    3266\n12 June       2842\n\n\n\n\n# A tibble: 1 × 4\n  min_speed median_speed mean_speed max_speed\n      &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1         0         0.22      0.416      127.\n\n\n\n\nPicking joint bandwidth of 0.0381"
+  }
+]
