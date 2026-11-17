@@ -1,0 +1,107 @@
+
+---
+title: "Map"
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+```
+
+```{r}
+read_csv("data/mallards.csv", show_col_types = FALSE) |>
+  head(10)
+```
+
+```{r}
+read_csv("data/mallards.csv", show_col_types = FALSE) |>
+  count(duck_id, sort = TRUE)
+```
+
+```{r}
+read_csv("data/mallards.csv", show_col_types = FALSE) |>
+  summarise(
+    min_lat = min(lat, na.rm = TRUE),
+    max_lat = max(lat, na.rm = TRUE),
+    min_long = min(long, na.rm = TRUE),
+    max_long = max(long, na.rm = TRUE)
+  )
+```
+
+```{r}
+#| cache: true
+mallards <- read_csv("data/mallards.csv", show_col_types = FALSE) |>
+  mutate(
+    timestamp = as.POSIXct(timestamp),
+    month = month(timestamp, label = TRUE, abbr = FALSE),
+    month_num = month(timestamp),
+    year = year(timestamp),
+    season = case_when(
+      month_num %in% 3:5 ~ "Spring",
+      month_num %in% 6:8 ~ "Summer",
+      month_num %in% 9:11 ~ "Autumn",
+      month_num %in% c(12, 1, 2) ~ "Winter"
+    ),
+    season = factor(
+      season,
+      levels = c("Spring", "Summer", "Autumn", "Winter")
+    )
+  )
+
+saveRDS(mallards, "data/mallards.rds")
+```
+
+```{r}
+#| fig-width: 12
+#| fig-height: 8
+
+countries <- ne_countries(
+  scale = "medium",
+  returnclass = "sf"
+)
+
+mallards |>
+  filter(
+    between(lat, 47, 55),
+    between(long, 8, 25)
+  ) |>
+  ggplot() +
+  geom_sf(
+    data = countries,
+    fill = "gray95",
+    color = "gray60",
+    inherit.aes = FALSE
+  ) +
+  geom_point(
+    aes(x = long, y = lat, color = duck_id),
+    size = 0.7,
+    alpha = 0.6
+  ) +
+  coord_sf(
+    xlim = c(8, 25),
+    ylim = c(47, 55),
+    expand = FALSE
+  ) +
+  labs(
+    title = "Mallard Duck GPS Locations",
+    subtitle = "Individual duck movements across Europe",
+    x = "Longitude",
+    y = "Latitude",
+    color = "Duck ID"
+  ) +
+  guides(
+    color = guide_legend(
+      ncol = 4,
+      override.aes = list(size = 2, alpha = 1)
+    )
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.text = element_text(size = 6),
+    legend.title = element_text(size = 9),
+    plot.title = element_text(size = 16, face = "bold")
+  )
+```

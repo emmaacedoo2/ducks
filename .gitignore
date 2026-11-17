@@ -1,5 +1,6 @@
 /.quarto/
 **/*.quarto_ipynb
 /_site/
-/.quarto/
 /*_files/
+/*_cache/
+data/mallards.rds
