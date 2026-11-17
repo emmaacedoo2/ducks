@@ -1,5 +1,17 @@
+
 ---
 title: "Mallard Duck Movement"
 ---
 
-Welcome to the Mallard Duck Movement website!
+## Where Do Mallard Ducks Go?
+
+Welcome to Mallard Duck Movement! This website explores the movements of 52 Mallard ducks tracked using GPS data over a 10-year period. The ducks were originally tagged at Lake Constance, a lake located on the border of Germany, Switzerland, and Austria. The tracking data comes from a Mallard GPS dataset provided in the PPBDS tutorial materials.
+
+Our analysis shows that most ducks stay relatively close to Lake Constance, while others travel hundreds of kilometers northeast across Europe. We also found that duck activity changes throughout the year, with movement peaking in July and August, after the breeding season.
+
+## Explore the Website
+
+Use the navigation bar at the top to explore our findings:
+
+- **Map:** Discover where the ducks travel and see their GPS locations across Europe.
+- **Seasons:** Explore how duck movement and speed change throughout the year.
