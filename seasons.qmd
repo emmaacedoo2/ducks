@@ -1,0 +1,54 @@
+
+---
+title: "Seasons"
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(ggridges)
+```
+
+```{r}
+mallards <- readRDS("data/mallards.rds")
+```
+
+```{r}
+mallards |>
+  count(month, sort = TRUE)
+```
+
+```{r}
+mallards |>
+  summarise(
+    min_speed    = min(speed, na.rm = TRUE),
+    median_speed = median(speed, na.rm = TRUE),
+    mean_speed   = mean(speed, na.rm = TRUE),
+    max_speed    = max(speed, na.rm = TRUE)
+  )
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 8
+
+mallards |>
+  filter(!is.na(speed), speed <= 30) |>
+  ggplot(aes(
+    x = speed,
+    y = fct_rev(month),
+    fill = month
+  )) +
+  geom_density_ridges(
+    alpha = 0.7,
+    scale = 1.2
+  ) +
+  labs(
+    title = "Mallard Speed Distributions by Month",
+    subtitle = "GPS fixes with speeds above 30 m/s excluded",
+    x = "Speed (m/s)",
+    y = "Month"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
